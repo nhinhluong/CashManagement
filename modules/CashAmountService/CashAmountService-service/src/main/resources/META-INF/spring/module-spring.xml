@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-destroy-method="destroy" default-init-method="afterPropertiesSet" xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean class="com.bmq.vn.service.impl.CtbProductLocalServiceImpl" id="com.bmq.vn.service.CtbProductLocalService" />
+	<bean class="com.bmq.vn.service.impl.CtbProductServiceImpl" id="com.bmq.vn.service.CtbProductService" />
+	<bean class="com.bmq.vn.service.persistence.impl.CtbProductPersistenceImpl" id="com.bmq.vn.service.persistence.CtbProductPersistence" parent="basePersistence" />
+	<bean class="com.bmq.vn.service.impl.CtbReasonLocalServiceImpl" id="com.bmq.vn.service.CtbReasonLocalService" />
+	<bean class="com.bmq.vn.service.impl.CtbReasonServiceImpl" id="com.bmq.vn.service.CtbReasonService" />
+	<bean class="com.bmq.vn.service.persistence.impl.CtbReasonPersistenceImpl" id="com.bmq.vn.service.persistence.CtbReasonPersistence" parent="basePersistence" />
+	<bean class="com.bmq.vn.service.persistence.impl.CtbReasonFinderImpl" id="com.bmq.vn.service.persistence.CtbReasonFinder" parent="basePersistence" />
+	<bean class="com.bmq.vn.service.impl.CtbStoreLocalServiceImpl" id="com.bmq.vn.service.CtbStoreLocalService" />
+	<bean class="com.bmq.vn.service.impl.CtbStoreServiceImpl" id="com.bmq.vn.service.CtbStoreService" />
+	<bean class="com.bmq.vn.service.persistence.impl.CtbStorePersistenceImpl" id="com.bmq.vn.service.persistence.CtbStorePersistence" parent="basePersistence" />
+	<bean class="com.bmq.vn.service.impl.CtbStoreTypeLocalServiceImpl" id="com.bmq.vn.service.CtbStoreTypeLocalService" />
+	<bean class="com.bmq.vn.service.impl.CtbStoreTypeServiceImpl" id="com.bmq.vn.service.CtbStoreTypeService" />
+	<bean class="com.bmq.vn.service.persistence.impl.CtbStoreTypePersistenceImpl" id="com.bmq.vn.service.persistence.CtbStoreTypePersistence" parent="basePersistence" />
+	<bean class="com.bmq.vn.service.impl.MtbStoreUserLocalServiceImpl" id="com.bmq.vn.service.MtbStoreUserLocalService" />
+	<bean class="com.bmq.vn.service.impl.MtbStoreUserServiceImpl" id="com.bmq.vn.service.MtbStoreUserService" />
+	<bean class="com.bmq.vn.service.persistence.impl.MtbStoreUserPersistenceImpl" id="com.bmq.vn.service.persistence.MtbStoreUserPersistence" parent="basePersistence" />
+	<bean class="com.bmq.vn.service.impl.SitbMoneyCollectionLocalServiceImpl" id="com.bmq.vn.service.SitbMoneyCollectionLocalService" />
+	<bean class="com.bmq.vn.service.impl.SitbMoneyCollectionServiceImpl" id="com.bmq.vn.service.SitbMoneyCollectionService" />
+	<bean class="com.bmq.vn.service.persistence.impl.SitbMoneyCollectionPersistenceImpl" id="com.bmq.vn.service.persistence.SitbMoneyCollectionPersistence" parent="basePersistence" />
+	<bean class="com.bmq.vn.service.persistence.impl.SitbMoneyCollectionFinderImpl" id="com.bmq.vn.service.persistence.SitbMoneyCollectionFinder" parent="basePersistence" />
+	<bean class="com.bmq.vn.service.impl.SitbStoreInfoLocalServiceImpl" id="com.bmq.vn.service.SitbStoreInfoLocalService" />
+	<bean class="com.bmq.vn.service.impl.SitbStoreInfoServiceImpl" id="com.bmq.vn.service.SitbStoreInfoService" />
+	<bean class="com.bmq.vn.service.persistence.impl.SitbStoreInfoPersistenceImpl" id="com.bmq.vn.service.persistence.SitbStoreInfoPersistence" parent="basePersistence" />
+</beans>

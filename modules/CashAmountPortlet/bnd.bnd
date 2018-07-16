@@ -1,0 +1,4 @@
+Bundle-Name: CashAmountPortlet
+Bundle-SymbolicName: CashAmountPortlet
+Bundle-Version: 1.0.0
+Export-Package: CashAmountPortlet.constants

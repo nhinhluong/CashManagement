@@ -1,0 +1,248 @@
+<?xml version="1.0"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 7.0.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_7_0_0.dtd">
+
+<service-builder package-path="com.bmq.vn">
+	<namespace>BMQName</namespace>
+	<entity local-service="true" name="CtbReason" remote-service="true" table="ctb_reason">
+		<!-- PK fields -->
+
+		<column name="reason_id" primary="true" type="long" db-name="reason_id"/>
+
+		<!-- Group instance -->
+
+		<!-- Audit fields -->
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<!-- Other fields -->
+
+		<column name="reason_code" type="String" />
+		<column name="reason_name" type="String" />
+		<column name="status" type="String" db-name="status"/>
+		<!-- Order -->
+
+		<order by="asc">
+			<order-column name="reason_id" />
+		</order>
+
+		<!-- Finder methods -->
+
+		<finder name="status" return-type="Collection">
+			<finder-column name="status" />
+		</finder>
+	</entity>
+	
+	<entity local-service="true" name="CtbStore" remote-service="true"  table="ctb_store">
+
+		<!-- PK fields -->
+
+		<column name="store_id" primary="true" type="long" db-name="store_id"/>
+
+		<!-- Group instance -->
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<!-- Other fields -->
+
+		<column name="store_code" type="String" />
+		<column name="store_name" type="String" />
+		<column name="status" type="String" />
+		<column name="address" type="String" />
+		<column name="phone" type="String"/>
+		<column name="store_type_id" type="long"/>
+		<!-- Order -->
+
+		<order by="asc">
+			<order-column name="store_id" />
+		</order>
+
+		<!-- Finder methods -->
+
+		<finder name="status" return-type="Collection">
+			<finder-column name="status" />
+		</finder>
+	</entity>
+	<!-- CTB_STORE_TYPE Table  -->
+	<entity local-service="true" name="CtbStoreType" remote-service="true"  table="ctb_store_type">
+
+		<!-- PK fields -->
+
+		<column name="store_type_id" primary="true" type="long" db-name="store_type_id"/>
+
+
+		<!-- Audit fields -->
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<!-- Other fields -->
+
+		<column name="store_type_code" type="String" db-name="store_type_code"/>
+		<column name="store_type_name" type="String" db-name="store_type_name"/>
+		<column name="status" type="String" db-name="status"/>
+		<!-- Order -->
+
+		<order by="asc">
+			<order-column name="store_type_id" />
+		</order>
+
+		<!-- Finder methods -->
+
+		<finder name="status" return-type="Collection">
+			<finder-column name="status" />
+		</finder>
+	</entity>
+	<!-- sitb_money_collection Table  -->
+	<entity local-service="true" name="SitbMoneyCollection" remote-service="true"  table="sitb_money_collection">
+
+		<!-- PK fields -->
+
+		<column name="money_collection_id" primary="true" type="long" db-name="money_collection_id"/>
+
+		<!-- Group instance -->
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<!-- Other fields -->
+		<column name="collection_date" type="Date"/>
+		<column name="collector_username" type="String"/>
+		<column name="amount" type="double" />
+		<column name="note" type="String" />
+		<column name="store_code" type="String"/>
+		<column name="approval_date" type="Date"/>
+		<column name="approval_username" type="String"/>
+		<column name="approval_status" type="String"/>
+		<column name="collection_ref" type="String"/>  <!-- mối quan hệ giữa bảng money_collection vs store_info-->
+		<column name="store_type_id" type="long"/>
+		<column name="reason_id" type="long"/>
+		<column name="cost" type="double"/>
+		<column name="discountAmount" type="double"/>
+		<column name="transferAmount" type="double"/>
+		<column name="store_name" type="String"/>
+		<!-- Order -->
+
+		<order by="asc">
+			<order-column name="money_collection_id" />
+		</order>
+
+		<!-- Finder methods -->
+
+		<finder name="approval_status" return-type="Collection">
+			<finder-column name="approval_status" />
+		</finder>
+
+		<!-- References
+
+		<reference entity="AssetEntry" package-path="com.liferay.portlet.asset" />
+		<reference entity="AssetTag" package-path="com.liferay.portlet.asset" /> -->
+	</entity>
+	<!-- sitb_store_info Table  -->
+	<entity local-service="true" name="SitbStoreInfo" remote-service="true" table="sitb_store_info">
+
+		<!-- PK fields -->
+
+		<column name="store_info_id" primary="true" type="long" db-name="store_info_id"/>
+
+		<!-- Group instance -->
+
+		<!-- Audit fields -->
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<!-- Other fields -->
+
+		<column name="store_id" type="long" />
+		<column name="store_code" type="String" />
+		<column name="first_quantity" type="long" />
+		<column name="last_quantity" type="long" />
+		<column name="import_quantity" type="long" />
+		<column name="note" type="String" />
+		<column name="arising_quantity" type="long" />
+		<column name="pay_quantity" type="long" />
+		<column name="collection_date" type="Date" />
+		<column name="collector_id" type="long"/>
+		<column name="collector_name" type="String"/>
+		<column name="collection_ref" type="String"/>
+		<column name="product_id" type="long"/>
+		<!-- Order -->
+
+		<order by="asc">
+			<order-column name="store_info_id" />
+		</order>
+	</entity>
+		<!-- ctb_product Table  -->
+	<entity local-service="true" name="CtbProduct" remote-service="true" table="ctb_product">
+
+		<!-- PK fields -->
+
+		<column name="product_id" primary="true" type="long" db-name="product_id"/>
+
+		<!-- Group instance -->
+
+		<!-- Audit fields -->
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<!-- Other fields -->
+
+		<column name="product_code" type="String" />
+		<column name="product_name" type="String" />
+		<column name="status" type="String" />
+		<!-- Order -->
+
+		<order by="asc">
+			<order-column name="product_id" />
+		</order>
+
+		<!-- Finder methods -->
+
+		<finder name="status" return-type="Collection">
+			<finder-column name="status" />
+		</finder>
+	</entity>
+		<!-- mtb_store_user Table  -->
+	<entity local-service="true" name="MtbStoreUser" remote-service="true" table="mtb_store_user">
+
+		<!-- PK fields -->
+
+		<column name="store_user_id" primary="true" type="long" db-name="store_user_id"/>
+
+		<!-- Group instance -->
+
+		<!-- Audit fields -->
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<!-- Other fields -->
+
+		<column name="store_id" type="long" />
+		<column name="manage_username" type="String" />
+
+	</entity>
+</service-builder>

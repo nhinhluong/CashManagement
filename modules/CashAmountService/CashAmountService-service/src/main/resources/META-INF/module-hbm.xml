@@ -1,0 +1,127 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping auto-import="false" default-lazy="false">
+	<import class="com.bmq.vn.model.CtbProduct" />
+	<import class="com.bmq.vn.model.CtbReason" />
+	<import class="com.bmq.vn.model.CtbStore" />
+	<import class="com.bmq.vn.model.CtbStoreType" />
+	<import class="com.bmq.vn.model.MtbStoreUser" />
+	<import class="com.bmq.vn.model.SitbMoneyCollection" />
+	<import class="com.bmq.vn.model.SitbStoreInfo" />
+	<class name="com.bmq.vn.model.impl.CtbProductImpl" table="ctb_product">
+		<id name="product_id" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="companyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="createDate" type="org.hibernate.type.TimestampType" />
+		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
+		<property name="product_code" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="product_name" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="status" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="com.bmq.vn.model.impl.CtbReasonImpl" table="ctb_reason">
+		<id name="reason_id" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="companyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="createDate" type="org.hibernate.type.TimestampType" />
+		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
+		<property name="reason_code" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="reason_name" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="status" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="com.bmq.vn.model.impl.CtbStoreImpl" table="ctb_store">
+		<id name="store_id" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="companyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="createDate" type="org.hibernate.type.TimestampType" />
+		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
+		<property name="store_code" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="store_name" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="status" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="address" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="phone" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="store_type_id" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+	</class>
+	<class name="com.bmq.vn.model.impl.CtbStoreTypeImpl" table="ctb_store_type">
+		<id name="store_type_id" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="companyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="createDate" type="org.hibernate.type.TimestampType" />
+		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
+		<property name="store_type_code" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="store_type_name" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="status" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="com.bmq.vn.model.impl.MtbStoreUserImpl" table="mtb_store_user">
+		<id name="store_user_id" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="companyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="createDate" type="org.hibernate.type.TimestampType" />
+		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
+		<property name="store_id" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="manage_username" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="com.bmq.vn.model.impl.SitbMoneyCollectionImpl" table="sitb_money_collection">
+		<id name="money_collection_id" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="companyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="createDate" type="org.hibernate.type.TimestampType" />
+		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
+		<property name="collection_date" type="org.hibernate.type.TimestampType" />
+		<property name="collector_username" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="amount" type="com.liferay.portal.dao.orm.hibernate.DoubleType" />
+		<property name="note" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="store_code" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="approval_date" type="org.hibernate.type.TimestampType" />
+		<property name="approval_username" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="approval_status" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="collection_ref" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="store_type_id" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="reason_id" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="cost" type="com.liferay.portal.dao.orm.hibernate.DoubleType" />
+		<property name="discountAmount" type="com.liferay.portal.dao.orm.hibernate.DoubleType" />
+		<property name="transferAmount" type="com.liferay.portal.dao.orm.hibernate.DoubleType" />
+		<property name="store_name" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="com.bmq.vn.model.impl.SitbStoreInfoImpl" table="sitb_store_info">
+		<id name="store_info_id" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="companyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="createDate" type="org.hibernate.type.TimestampType" />
+		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
+		<property name="store_id" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="store_code" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="first_quantity" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="last_quantity" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="import_quantity" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="note" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="arising_quantity" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="pay_quantity" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="collection_date" type="org.hibernate.type.TimestampType" />
+		<property name="collector_id" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="collector_name" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="collection_ref" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="product_id" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+	</class>
+</hibernate-mapping>

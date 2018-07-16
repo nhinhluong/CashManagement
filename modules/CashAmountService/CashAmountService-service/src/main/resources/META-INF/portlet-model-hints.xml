@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="com.bmq.vn.model.CtbProduct">
+		<field name="product_id" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="product_code" type="String" />
+		<field name="product_name" type="String" />
+		<field name="status" type="String" />
+	</model>
+	<model name="com.bmq.vn.model.CtbReason">
+		<field name="reason_id" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="reason_code" type="String" />
+		<field name="reason_name" type="String" />
+		<field name="status" type="String" />
+	</model>
+	<model name="com.bmq.vn.model.CtbStore">
+		<field name="store_id" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="store_code" type="String" />
+		<field name="store_name" type="String" />
+		<field name="status" type="String" />
+		<field name="address" type="String" />
+		<field name="phone" type="String" />
+		<field name="store_type_id" type="long" />
+	</model>
+	<model name="com.bmq.vn.model.CtbStoreType">
+		<field name="store_type_id" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="store_type_code" type="String" />
+		<field name="store_type_name" type="String" />
+		<field name="status" type="String" />
+	</model>
+	<model name="com.bmq.vn.model.MtbStoreUser">
+		<field name="store_user_id" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="store_id" type="long" />
+		<field name="manage_username" type="String" />
+	</model>
+	<model name="com.bmq.vn.model.SitbMoneyCollection">
+		<field name="money_collection_id" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="collection_date" type="Date" />
+		<field name="collector_username" type="String" />
+		<field name="amount" type="double" />
+		<field name="note" type="String" />
+		<field name="store_code" type="String" />
+		<field name="approval_date" type="Date" />
+		<field name="approval_username" type="String" />
+		<field name="approval_status" type="String" />
+		<field name="collection_ref" type="String" />
+		<field name="store_type_id" type="long" />
+		<field name="reason_id" type="long" />
+		<field name="cost" type="double" />
+		<field name="discountAmount" type="double" />
+		<field name="transferAmount" type="double" />
+		<field name="store_name" type="String" />
+	</model>
+	<model name="com.bmq.vn.model.SitbStoreInfo">
+		<field name="store_info_id" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="store_id" type="long" />
+		<field name="store_code" type="String" />
+		<field name="first_quantity" type="long" />
+		<field name="last_quantity" type="long" />
+		<field name="import_quantity" type="long" />
+		<field name="note" type="String" />
+		<field name="arising_quantity" type="long" />
+		<field name="pay_quantity" type="long" />
+		<field name="collection_date" type="Date" />
+		<field name="collector_id" type="long" />
+		<field name="collector_name" type="String" />
+		<field name="collection_ref" type="String" />
+		<field name="product_id" type="long" />
+	</model>
+</model-hints>

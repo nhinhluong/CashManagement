@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<custom-sql>
+    <sql id="com.bmq.vn.service.persistence.SitbMoneyCollectionFinder.getAllMoneyCollectionData" >
+	<![CDATA[
+	SELECT SitbMoneyCollection.*, CtbReason.* FROM sitb_money_collection AS SitbMoneyCollection
+	INNER JOIN ctb_reason AS CtbReason ON CtbReason.reason_code=SitbMoneyCollection.reason_id;
+	]]>
+	</sql>
+	<sql id="com.bmq.vn.service.persistence.SitbMoneyCollectionFinder.getMoneyCollectionNotApproval" >
+	<![CDATA[
+	SELECT SitbMoneyCollection.*, CtbReason.* FROM sitb_money_collection AS SitbMoneyCollection
+	INNER JOIN ctb_reason AS CtbReason ON CtbReason.reason_code=SitbMoneyCollection.reason_id WHERE SitbMoneyCollection.approval_status = 0;
+	]]>
+	</sql>
+	<sql id="com.bmq.vn.service.persistence.CtbReasonFinder.getAllUserData" >
+	<![CDATA[
+	SELECT SitbMoneyCollection.*, CtbReason.* FROM SitbMoneyCollection AS SitbMoneyCollection
+	INNER JOIN CtbReason AS CtbReason ON CtbReason.reason_code=SitbMoneyCollection.reason_id;
+	]]>
+	</sql>
+</custom-sql>

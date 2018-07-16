@@ -1,0 +1,9 @@
+Bundle-Name: CashAmountService-api
+Bundle-SymbolicName: com.bmq.vn.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	com.bmq.vn.exception,\
+	com.bmq.vn.model,\
+	com.bmq.vn.service,\
+	com.bmq.vn.service.persistence
+-includeresource: META-INF/service.xml=../CashAmountService-service/service.xml

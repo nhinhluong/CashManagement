@@ -1,0 +1,243 @@
+<%@page import="java.util.List"%>
+<%@page import="com.bmq.vn.service.CtbReasonLocalServiceUtil"%>
+<%@page import="com.bmq.vn.model.CtbReason"%>
+<%@ include file="/init.jsp" %>
+
+<%@ page contentType="text/html" pageEncoding="UTF-8" %>
+
+
+<portlet:actionURL name="addNewAgent" var="addnewagent" >
+	<portlet:param name="mvcActionCommand" value="addNewAgent" />
+</portlet:actionURL>
+
+
+<div data-reactroot="" class="container BMQCollectMoney">
+	<div class="text-center">
+		<h1 class="page-title">THU TIỀN ĐẠI LÝ MỚI</h1>
+	</div>
+	<form action="<%=addnewagent %>" method="post" id="newAgentForm">
+		<section>
+			<div class="row">
+				<div class="col-xs-12 col-sm-3">
+					<div class="form-group">
+						<label data-required="true" for="" class="form-label">Nhân viên thu tiền:</label>
+						<div>
+							<p id="_BmqCollectMoney_nhan_vien_thu_tien" 
+								name="_BmqCollectMoney_nhan_vien_thu_tien" class="form-control">${user.getFullName()}</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-3">
+					<div class="form-group">
+						<label data-required="true" for="" class="form-label">Thời gian:</label>
+						<div>
+							<input id="_BmqCollectMoney_date_collect"
+								class="form-control" name="_BmqCollectMoney_date_collect"
+								value="${dateTool.format("yyyyMMdd", $dateTool.getDate(), $locale)}">
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section>	
+			<h4 class="form-section">Thông tin chi tiết</h4>		
+			<div class="row">
+				<div class="col-xs-12 col-sm-3">
+					<div class="form-group">
+						<label data-required="true" for="" class="form-label">Mã đại lý:</label>
+						<div>
+							<aui:input id="_BmqCollectMoney_ma_dai_ly" class="form-control"
+								name="moneyCollectionStoreCode" maxlength="100" value=""
+								type="text" label=""/>
+						</div>
+					</div>
+				</div>				
+				<div class="col-xs-12 col-sm-3">
+					<div class="form-group">
+						<label data-required="true" for="" class="form-label">Tên đại lý</label>
+						<div>
+							<aui:input id="_BmqCollectMoney_ma_dai_ly" class="form-control"
+								name="moneyCollectionStoreName" maxlength="100" value=""
+								type="text" label=""/>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12 col-sm-3">
+					<div class="form-group">
+						<label data-required="true" for="" class="form-label">Loại
+							thu:</label>
+						<div>
+							<aui:select name="moneyCollectionReasonId" label="">
+								<c:forEach items="<%=CtbReasonLocalServiceUtil.getCtbReasons(0, 3)%>"var="reasons" > 
+							    	<aui:option value="${reasons.getReason_code()}">${reasons.getReason_name()}</aui:option>
+							    </c:forEach>
+							</aui:select>
+						</div>
+					</div>
+				</div>		
+
+			</div>
+			<div class="row">
+				<div class="col-xs-12 col-sm-3">
+					<div class="form-group">
+						<label data-required="true" for="_BmqCollectMoney_so_tien_ban" class="form-label">Số tiền:</label>
+						<div>
+							<input id="_BmqCollectMoney_so_tien_ban" class="form-control field-required field-digits"
+								name="moneyCollectionAmount" maxlength="100" value="" label=""
+								type="text"/>
+							
+						</div>
+					</div>
+				</div>
+
+			</div>
+								
+		</section>
+		
+		
+		<section>
+			<div class="row">
+				<div class="col-xs-12 col-sm-6">
+					<div class="form-group">
+						<label for="" class="form-label">Ghi chú:</label>
+						<div>
+							<aui:input id="_BmqCollectMoney_ghi_chu" class="form-control"
+								name="moneyCollectionNote" maxlength="100" value=""
+								type="text" label=""/>
+							<aui:input 
+								name="moneyCollectionUserName" maxlength="100" value="${user.getEmailAddress()}"
+								type="hidden"/>
+						</div> 
+					</div>
+				</div>
+			</div>
+		</section>
+		<div class="text-left buttons">
+			<button type="submit" class="btn btn-warning"
+				style="margin-left: 10px;">Lưu</button>
+		</div>
+	</form>
+</div>
+<script>
+	YUI({
+		lang : 'vi'
+	}).use('aui-datepicker', 'aui-toggler', function(Y) {
+		var datepicker1 = new Y.DatePicker({			
+			trigger : '#_BmqCollectMoney_date_collect',
+			mask : '%d/%m/%Y',
+			popover : {
+				zIndex : 1
+			}
+		});
+		
+	});
+	// validation form
+	YUI().use(
+	  'aui-form-validator',
+	  function(Y) {
+	    new Y.FormValidator(
+	      {
+	        boundingBox: '#newAgentForm'
+	      }
+	    );
+	  }
+	);
+</script>
+<style>
+.form-control {
+	  width: 100%;
+	  height: 34px;
+	  padding: 6px 12px;
+	  background-color: transparent;
+	  border: 1px solid #ccc;
+	  border-radius: 4px;
+	  -webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+	  -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+	  transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+	  transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+	  transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+  }
+.page-title {
+	color: #f7941d;
+	text-transform: uppercase;
+	font-weight: 300;
+	margin-bottom: 40px;
+	margin-top: 25px;
+	text-align: center;
+	font-size: 48px;
+}
+form {
+	margin-top: 40px;
+}
+form .form-section {
+	background-color: #f7941d;
+	color: #fff;
+	border-radius: 5px;
+	display: inline-block;
+	padding: 10px 20px;
+	margin: 0 0 20px;
+	text-transform: uppercase;
+}
+form section {
+	margin-top: 20px;
+}
+form section+section {
+	margin-top: 20px;
+	padding-top: 30px;
+	border-top: 2px solid #f1f1f1;
+}
+form .buttons {
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+form label[data-required]::after {
+	content: '*';
+	color: red;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+form label.form-label {
+	font-weight: 500;
+}
+form label.form-label.summary {
+	color: #ff424e;
+}
+form .default-disabled label {
+	opacity: .7;
+}
+.form-group {
+	position: relative;
+	margin-bottom: 20px
+}
+
+.form-group .error-text {
+	color: #ff424e;
+	font-size: 12px;
+	position: absolute;
+	top: 100%;
+	margin-top: 2px;
+}
+
+#form-group .has-error .form-control {
+	border:2px;
+	border-color: #ff424e;
+}
+
+.form-group .hint {
+	margin-bottom: 10px
+}
+.form-control:focus {
+	box-shadow: none;
+	color: #f7941d;
+	border-color: #f7941d;
+}
+.BMQCollectMoney {
+	font-family: Roboto;
+	color: #444;
+	background-color: #fff;
+	line-height: 1.4;
+	font-size: 14px;
+}
+</style></p>
